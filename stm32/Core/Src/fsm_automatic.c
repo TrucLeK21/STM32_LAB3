@@ -108,6 +108,7 @@ void fsm_automatic_run()
 		default:
 			break;
 	}
+	updateClockBuffer();
 }
 
 void red1_yellow2()

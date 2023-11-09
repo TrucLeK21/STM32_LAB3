@@ -10,10 +10,10 @@
 
 #include "global.h"
 
-#define MAX_LED	4;
+#define MAX_LED	4
 
 void display_7SEG(int num);
-void scanLeds(int index);
+void update7SEG(int index);
 void updateClockBuffer();
 
 #endif /* INC_7_SEGMENT_H_ */

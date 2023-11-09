@@ -11,6 +11,7 @@
 #include "software_timer.h"
 #include "main.h"
 #include "7_segment.h"
+#include "fsm_automatic.h"
 
 #define INIT			0
 #define RED1_YELLOW2	2
@@ -20,5 +21,6 @@
 
 extern int status, red_duration, green_duration, yellow_duration;
 extern int road1_counter, road2_counter;
+extern int scan_duration;
 
 #endif /* INC_GLOBAL_H_ */

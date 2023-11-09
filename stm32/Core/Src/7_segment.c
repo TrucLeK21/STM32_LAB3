@@ -20,32 +20,32 @@ void display_7SEG(int num)
 				HAL_GPIO_WritePin(GPIOA, segments[6], SET);
 				break;
 			case 1:
-				HAL_GPIO_WritePin(GPIOB, segments[1] | segments[2], RESET);
-				HAL_GPIO_WritePin(GPIOB, segments[0] | segments[3] | segments[4] | segments[5] | segments[6], SET);
+				HAL_GPIO_WritePin(GPIOA, segments[1] | segments[2], RESET);
+				HAL_GPIO_WritePin(GPIOA, segments[0] | segments[3] | segments[4] | segments[5] | segments[6], SET);
 				break;
 			case 2:
-				HAL_GPIO_WritePin(GPIOB, segments[0] | segments[1] | segments[3] | segments[4] | segments[6], RESET);
-				HAL_GPIO_WritePin(GPIOB, segments[2] | segments[5], SET);
+				HAL_GPIO_WritePin(GPIOA, segments[0] | segments[1] | segments[3] | segments[4] | segments[6], RESET);
+				HAL_GPIO_WritePin(GPIOA, segments[2] | segments[5], SET);
 				break;
 			case 3:
-				HAL_GPIO_WritePin(GPIOB, segments[0] | segments[1] | segments[3] | segments[2] | segments[6], RESET);
-				HAL_GPIO_WritePin(GPIOB, segments[4] | segments[5], SET);
+				HAL_GPIO_WritePin(GPIOA, segments[0] | segments[1] | segments[3] | segments[2] | segments[6], RESET);
+				HAL_GPIO_WritePin(GPIOA, segments[4] | segments[5], SET);
 				break;
 			case 4:
-				HAL_GPIO_WritePin(GPIOB, segments[1] | segments[2] | segments[5] | segments[6], RESET);
-				HAL_GPIO_WritePin(GPIOB, segments[4] | segments[0] | segments[3], SET);
+				HAL_GPIO_WritePin(GPIOA, segments[1] | segments[2] | segments[5] | segments[6], RESET);
+				HAL_GPIO_WritePin(GPIOA, segments[4] | segments[0] | segments[3], SET);
 				break;
 			case 5:
-				HAL_GPIO_WritePin(GPIOB, segments[0] | segments[5] | segments[3] | segments[2] | segments[6], RESET);
-				HAL_GPIO_WritePin(GPIOB, segments[4] | segments[1], SET);
+				HAL_GPIO_WritePin(GPIOA, segments[0] | segments[5] | segments[3] | segments[2] | segments[6], RESET);
+				HAL_GPIO_WritePin(GPIOA, segments[4] | segments[1], SET);
 				break;
 			case 6:
 				HAL_GPIO_WritePin(GPIOA, segments[0] | segments[6] | segments[2] | segments[3] | segments[4] | segments[5], RESET);
 				HAL_GPIO_WritePin(GPIOA, segments[1], SET);
 				break;
 			case 7:
-				HAL_GPIO_WritePin(GPIOB, segments[3] | segments[4] | segments[5] | segments[6], SET);
-				HAL_GPIO_WritePin(GPIOB, segments[1] | segments[0] | segments[2], RESET);
+				HAL_GPIO_WritePin(GPIOA, segments[3] | segments[4] | segments[5] | segments[6], SET);
+				HAL_GPIO_WritePin(GPIOA, segments[1] | segments[0] | segments[2], RESET);
 				break;
 			case 8:
 				HAL_GPIO_WritePin(GPIOA, segments[0] | segments[1] | segments[2] | segments[3] | segments[4] | segments[5] | segments[6], RESET);
@@ -66,14 +66,32 @@ void updateClockBuffer()
 	led_buffer[3] = road2_counter % 10;
 }
 
-void scanLeds(int index)
+
+void update7SEG(int index)
 {
 	switch (index) {
 		case 0:
-			// turn on led 0 and turn off led 1,2,3
-			HAL_GPIO_WritePin(GPIOA, EN1_Pin | EN2_Pin | EN3_Pin, SET);
-			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
-			// display number 1
+			HAL_GPIO_WritePin(GPIOB, EN1_Pin | EN2_Pin | EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOB, EN0_Pin, RESET);
+
+			display_7SEG(led_buffer[index]);
+			break;
+		case 1:
+			HAL_GPIO_WritePin(GPIOB, EN0_Pin | EN2_Pin | EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOB, EN1_Pin, RESET);
+
+			display_7SEG(led_buffer[index]);
+			break;
+		case 2:
+			HAL_GPIO_WritePin(GPIOB, EN1_Pin | EN3_Pin | EN0_Pin, SET);
+			HAL_GPIO_WritePin(GPIOB, EN2_Pin, RESET);
+
+			display_7SEG(led_buffer[index]);
+			break;
+		case 3:
+			HAL_GPIO_WritePin(GPIOB, EN1_Pin | EN2_Pin | EN0_Pin, SET);
+			HAL_GPIO_WritePin(GPIOB, EN3_Pin, RESET);
+
 			display_7SEG(led_buffer[index]);
 			break;
 		default:
