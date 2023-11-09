@@ -1,0 +1,5 @@
+fsm_automatic.c:16:6:fsm_automatic_run	8	static
+fsm_automatic.c:113:6:red1_yellow2	8	static
+fsm_automatic.c:120:6:red1_green2	8	static
+fsm_automatic.c:127:6:yellow1_red2	8	static
+fsm_automatic.c:133:6:green1_red2	8	static
