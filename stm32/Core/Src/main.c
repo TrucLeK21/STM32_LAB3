@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "global.h"
+#include "button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,23 +96,11 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   status = INIT;
-  int led_index = 0;
-  setTimer3(scan_duration);
 
   while (1)
   {
-    /* USER CODE END WHILE */
 	  fsm_automatic_run();
-	  if(timer3_flag)
-	  {
-		  update7SEG(led_index);
-		  led_index++;
-		  if(led_index >= MAX_LED)
-		  {
-			  led_index = 0;
-		  }
-		  setTimer3(scan_duration);
-	  }
+	  fsm_manual_run();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -251,6 +240,7 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	timerRun();
+	button_reading();
 }
 /* USER CODE END 4 */
 

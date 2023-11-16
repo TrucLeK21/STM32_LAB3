@@ -1,0 +1,3 @@
+button.c:25:6:button_reading	16	static
+button.c:62:5:isbuttonPressed	16	static
+button.c:75:6:resetAllFlag	16	static

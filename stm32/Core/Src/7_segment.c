@@ -10,6 +10,7 @@
 
 uint16_t segments[7] = {SEG_A_Pin, SEG_B_Pin, SEG_C_Pin, SEG_D_Pin, SEG_E_Pin, SEG_F_Pin, SEG_G_Pin};
 int led_buffer[4];
+int led_index = 0;
 
 void display_7SEG(int num)
 {
@@ -57,6 +58,24 @@ void display_7SEG(int num)
 		}
 }
 
+void scan7sSEG()
+{
+	updateClockBuffer();
+
+	// scan 4 7 segments leds
+	if(timer1_flag)
+	{
+	  update7SEG(led_index);
+	  led_index++;
+	  if(led_index >= MAX_LED)
+	  {
+		  led_index = 0;
+	  }
+	  setTimer1(scan_duration);
+	}
+//	display_7SEG(road2_counter);
+}
+
 void updateClockBuffer()
 {
 	led_buffer[0] = road1_counter / 10;
@@ -65,7 +84,6 @@ void updateClockBuffer()
 	led_buffer[2] = road2_counter / 10;
 	led_buffer[3] = road2_counter % 10;
 }
-
 
 void update7SEG(int index)
 {
