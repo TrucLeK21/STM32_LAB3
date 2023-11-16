@@ -1,4 +1,4 @@
 fsm_manual.c:13:6:fsm_manual_run	8	static
-fsm_manual.c:91:6:man_red	8	static
-fsm_manual.c:100:6:man_yellow	8	static
-fsm_manual.c:109:6:man_green	8	static
+fsm_manual.c:101:6:man_red	8	static
+fsm_manual.c:110:6:man_yellow	8	static
+fsm_manual.c:119:6:man_green	8	static

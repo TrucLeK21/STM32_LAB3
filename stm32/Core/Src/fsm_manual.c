@@ -73,14 +73,18 @@ void fsm_manual_run()
 			if(isbuttonPressed(2))
 			{
 				green_duration = road1_counter;
-				// change to mode 3 immediately when button3 is pressed in this mode
-				status = INIT;
 			}
 
 			// switch to mode 1 when button two is pressed
 			if(isbuttonPressed(0))
 			{
-				status = INIT;
+				if(red_duration == (yellow_duration + green_duration))
+				{
+					status = INIT;
+				} else {
+					// go back to mode 2 when the condition is not satisfied
+					status = MAN_INIT;
+				}
 			}
 			break;
 		default:
