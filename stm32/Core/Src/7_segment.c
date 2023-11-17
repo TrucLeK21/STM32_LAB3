@@ -58,7 +58,7 @@ void display_7SEG(int num)
 		}
 }
 
-void scan7sSEG()
+void scan7SEG()
 {
 	updateClockBuffer();
 
@@ -73,7 +73,6 @@ void scan7sSEG()
 	  }
 	  setTimer1(scan_duration);
 	}
-//	display_7SEG(road2_counter);
 }
 
 void updateClockBuffer()

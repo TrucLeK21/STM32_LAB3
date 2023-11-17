@@ -1,4 +1,4 @@
 7_segment.c:15:6:display_7SEG	16	static
-7_segment.c:61:6:scan7sSEG	8	static
-7_segment.c:79:6:updateClockBuffer	4	static
-7_segment.c:88:6:update7SEG	16	static
+7_segment.c:61:6:scan7SEG	8	static
+7_segment.c:78:6:updateClockBuffer	4	static
+7_segment.c:87:6:update7SEG	16	static

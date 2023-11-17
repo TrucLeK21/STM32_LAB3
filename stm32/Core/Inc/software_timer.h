@@ -8,8 +8,8 @@
 #ifndef INC_SOFTWARE_TIMER_H_
 #define INC_SOFTWARE_TIMER_H_
 
-#define TICK 10
 extern int timer1_flag, timer2_flag, timer3_flag;
+extern int TICK;
 
 void setTimer1(int duration);
 void setTimer2(int duration);

@@ -25,7 +25,9 @@ void fsm_manual_run()
 			road2_counter = 2;
 			break;
 		case MAN_RED:
+			// led blinky
 			man_red();
+			// we will make use of road1_counter for display 7 segments LEDs and increasing time duration value
 			if(isbuttonPressed(1)) road1_counter++;
 			// set duration to temporary counter if button3 is pressed
 			if(isbuttonPressed(2))
@@ -46,7 +48,9 @@ void fsm_manual_run()
 			}
 			break;
 		case MAN_YELLOW:
+			// led blinky
 			man_yellow();
+			// we will make use of road1_counter for display 7 segments LEDs and increasing time duration value
 			if(isbuttonPressed(1)) road1_counter++;
 			// set duration to temporary counter if button3 is pressed
 			if(isbuttonPressed(2))
@@ -67,7 +71,9 @@ void fsm_manual_run()
 			}
 			break;
 		case MAN_GREEN:
+			// led blinky
 			man_green();
+			// we will make use of road1_counter for display 7 segments LEDs and increasing time duration value
 			if(isbuttonPressed(1)) road1_counter++;
 			// set duration to temporary counter if button3 is pressed
 			if(isbuttonPressed(2))

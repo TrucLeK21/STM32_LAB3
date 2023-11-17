@@ -69,8 +69,6 @@ void fsm_automatic_run()
 			break;
 	}
 
-	scan7sSEG();
-
 	// when the system is in automatic mode
 	if(status < MAN_INIT)
 	{
